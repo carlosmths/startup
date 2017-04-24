@@ -1,0 +1,95 @@
+html, body{
+	height:100%;
+	width:100%;
+	background-color:#333333;
+	color:white;
+	font-size:14px;
+	font-family:"Times New Roman", Georgia, Serif;
+}
+header{
+	text-align:center;
+	background-color:#666666;
+	height:5%;
+	border-radius:10px;
+	margin:1%;
+}
+nav{
+	text-align:center;
+	width:18%;
+	height:60%;
+	float:left;
+	background-color:#666666;
+	margin:1%;
+	margin-top:0;
+	border-radius:10px;
+}
+section{
+	text-align:center;
+	width:60%;
+	height:60%;
+	float:left;
+	background-color:#666666;
+	margin-bottom:1%;
+	border-radius:10px;
+}
+aside{
+	text-align:center;
+	width:18%;
+	height:60%;
+	float:right;
+	background-color:#666666;
+	border-radius:10px;
+	margin:1%;
+	margin-top:0;
+}
+footer{
+	text-align:center;
+	height:5%;
+	background-color:#666666;
+	clear:both;
+	margin:1%;
+	border-radius:10px;
+}
+section header,
+section article,
+section footer{
+	background-color:#999999;
+}
+section article{
+	height:65%;
+	margin:1%;
+	border-radius:10px;
+}
+section header{
+	height:10%;
+}
+section footer{
+	height:10%;
+}
+p{
+	margin:0;
+}
+.header{
+	font-size:46px;
+}
+.footer{
+	font-size:10px;
+}
+.content{
+	font-size:14px;
+}
+.navigation{
+	font-size:12px;
+}
+.sidebar{
+	font-size:10px;
+}
+[class$="r"]{
+	background-color:magenta;
+}
+[class*="a"]:not([class$="r"]){
+	background-color:blue;
+}
+body{
+	font-weight:bold;
+}

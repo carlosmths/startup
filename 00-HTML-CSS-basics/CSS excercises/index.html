@@ -20,8 +20,30 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
+        <header class="header">
+            <p>&ltheader&gt</p>
+        </header>
+        <nav class="navigation">
+            <p>&ltnav&gt</p>
+        </nav>
+        <section class="content">
+            <p>&ltsection&gt</p>
+            <header>
+                <p>&ltheader&gt</p>
+            </header>
+            <article>
+                <p>&ltarticle&gt</p>
+            </article>
+            <footer>
+                <p>&ltfooter&gt</p>
+            </footer>
+        </section>
+        <aside class="sidebar">
+            <p>&ltaside&gt</p>
+        </aside>
+        <footer class="footer">
+            <p>&ltfooter&gt</p>
+        </footer>
         <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
@@ -34,4 +56,19 @@
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
     </body>
+<!--
+    --------------------------------------------------------------------------------------------------------------------------------------------------
+    SOLUTION TO EXCERCISE 7 FROM SECTION 2.3
+    Imagine there is a declaration like class=”oh-no-inline-styles” style=”background:red” and you need to change the background to green without changing the inline style. How could you accomplish this?
+
+    Answer: This could be done using the !important declaration.
+    Redefine class 'oh-no-inline-styles' in the stylesheet:
+
+    .oh-no-inline-styles{
+      background-color:green !important;
+    }
+
+    the !important declaration allows the less-specific selector to have priority. 
+    --------------------------------------------------------------------------------------------------------------------------------------------------
+-->
 </html>

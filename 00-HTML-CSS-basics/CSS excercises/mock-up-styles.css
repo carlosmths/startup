@@ -1,0 +1,66 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+header{
+	display:table;
+}
+img{
+	position:relative;
+	height:100%;
+	width:100%;
+}
+section{
+	margin-top:2%;
+}
+.grid-two{
+	display:table-cell;
+	width:50%;
+	border-bottom:1px solid black;
+}
+.grid-three{
+	width:33.3%;
+	height:30%;
+	padding:1%;
+	float:left;
+	position:relative;
+}
+.row{
+	display:table-row;
+}
+.title{
+  color: #fff;
+  font-family: arial, helvetica, sans-serif;
+  font-weight: bold;
+  font-size:15px;
+  font-size: 2.5vw;
+  -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+  margin-left:-30%;
+}
+.screen{
+	background-color: rgba(0,0,0,0.7);
+	left: 0;
+	top: 0;
+	border-radius: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	opacity: 0;
+	z-index: 1000;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	  -o-transition: all 0.3s ease-in-out;
+	    -ms-transition: all 0.3s ease-in-out;
+	      transition: all 0.3s ease-in-out;
+}
+.screen:hover {
+  opacity: 1
+}
+.screen:hover .title{
+  margin-left: 0;
+}
