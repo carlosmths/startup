@@ -1,0 +1,35 @@
+body{
+	text-align:center;
+}
+header{
+	position:relative;
+	border-bottom:2px solid;
+}
+article{
+	border:2px solid;
+	width:40%;
+	margin:auto;
+	position:relative;
+}
+section{
+	min-height:200px;
+	display:table;
+	text-align:center;
+	width:100%;
+}
+.joke{
+	display:table-cell;
+	vertical-align:middle;
+}
+.hidden{
+	visibility:hidden;
+}
+.visible{
+	visibility:visible;
+}
+.button{
+	background-color:green;
+	color:white;
+	border-radius:5px;
+	height:40px;
+}
