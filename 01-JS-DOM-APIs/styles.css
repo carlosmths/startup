@@ -6,18 +6,20 @@ header{
 	border-bottom:2px solid;
 }
 article{
-
 	border:2px solid;
 	width:40%;
 	margin:auto;
-	margin-top:10%;
 	position:relative;
+	margin-bottom:20px;
 }
 section{
 	min-height:200px;
 	display:table;
 	text-align:center;
 	width:100%;
+}
+td {
+	border: 1px solid black;
 }
 .joke{
 	display:table-cell;
@@ -35,4 +37,34 @@ section{
 	color:white;
 	border-radius:5px;
 	height:40px;
+}
+.error{
+	color:red;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	padding:10px;
+	font-weight:bold;
+	margin:auto;
+}
+.repoData{
+	width:50%;
+	text-align:center;
+	margin:auto;
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:justify;
+}
+.search{
+	height:30px;
+	border-radius:5px;
+}
+.table{
+	margin:auto;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+.tbody{
+	display:inline-block;
 }
