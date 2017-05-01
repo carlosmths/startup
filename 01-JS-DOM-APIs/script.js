@@ -1,15 +1,16 @@
 window.onload = function(){
-	let makeVisible = document.getElementById('jokeSection');
-	let btnLoader = document.getElementById('btnJoke');
+	const makeVisible = document.getElementById('jokeSection');
+	const btnLoader = document.getElementById('btnJoke');
 	makeVisible.className = "visible";
-	btnLoader.onclick = jokeLoader;
+	// btnLoader.onclick = jokeLoader;
+	btnLoader.onclick = getJoke;
 }
 
-function jokeLoader(){
-	let xmlhttp = new XMLHttpRequest();
-	let jokePar = document.getElementById('jokeParagraph');
-	let btnLoader = document.getElementById('btnJoke');
-	let section = document.getElementById('jokeSection');
+const jokeLoader = () => {
+	const xmlhttp = new XMLHttpRequest();
+	const jokePar = document.getElementById('jokeParagraph');
+	const btnLoader = document.getElementById('btnJoke');
+	const section = document.getElementById('jokeSection');
 	xmlhttp.onreadystatechange = function(){
 		if(xmlhttp.readyState == 4){
 			let status = xmlhttp.status;
@@ -30,16 +31,56 @@ function jokeLoader(){
 	
 }
 
+//Configuration object that will be used on reusableAjaxRequest() function
 const ajaxConfig = {
 	//Request URL
-	url:"";
-	//Method (i.e: GET or POST)
-	method:"";
-	//Data to send
-	data:"";
-
+	url:'http://api.icndb.com/jokes/random',
+	//Method (i.e. GET or POST)
+	method:'GET'
 }
 
-function reusableAjaxRequest(){
+const makeAjaxRequest = config => {
+	const xmlhttp = new XMLHttpRequest();
+	const jokePar = document.getElementById('jokeParagraph');
+	const btnLoader = document.getElementById('btnJoke');
+	
+	const getData = new Promise((resolve, reject) => {
+		xmlhttp.onload = () => {
+			let status = xmlhttp.status;
+			let message = xmlhttp.statusText;
+			if(status == 200){
+				resolve(xmlhttp.responseText)
+			}
+			else{
+				reject(`Request failed. Server responded with message: ${message}`)
+			}
+		}
+		xmlhttp.onerror = () => {
+			reject('Request Error!');
+		}
+		xmlhttp.open(config.method, config.url, true);
+		xmlhttp.send();
+	})
+	return getData;
+}
 
+const getAndPrint = (cfg) => {
+	makeAjaxRequest(cfg)
+	.then(result => {
+		const data = JSON.parse(result);
+		printData('jokeParagraph', data.value.joke);
+	})
+	.catch(error => {
+		const section = document.getElementById('jokeSection');
+		section.style.color = 'red';
+		printData('jokeParagraph', error)
+	});
+}
+
+const printData = (id,text) => {
+	document.getElementById(id).innerHTML = text
+}
+
+const getJoke = () => {
+	getAndPrint(ajaxConfig)
 }
