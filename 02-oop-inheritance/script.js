@@ -21,6 +21,7 @@ class EventEmmiter{
 			logger.error(event);
 		}
 	}
+
 	emit(event){
 		if(this.superClass.hasOwnProperty(event)){
 			this[event]();
@@ -29,8 +30,10 @@ class EventEmmiter{
 			logger.error(event);
 		}
 	}
+
 	off(event){
 		if(this.superClass.hasOwnProperty(event)){
+			//Deletes the play() method of the Movie subclass, not the play() method from the prototype.
 			delete this[event];
 		}
 		else{
@@ -46,6 +49,7 @@ class Movie extends EventEmmiter{
 		this.title = title;
 		this.year = year;
 		this.duration = duration;	
+		this.actorsList = new Array();
 	}
 
 	play(){
@@ -55,10 +59,13 @@ class Movie extends EventEmmiter{
 		console.log(`The movie ${this.title} is paused`);
 	}
 	resume(){
-		console.log('Resume');
+		console.log('Movie resumed');
 	}
 	stop(){
 		console.log(`The movie ${this.title} is stopped`);
+	}
+	addCast(actor){
+		this.actorsList = this.actorsList.concat(actor);
 	}
 }
 
@@ -75,21 +82,50 @@ class Logger{
 	}
 }
 
+class Actor{
+	constructor(name, age){
+		this.name = name;
+		this.age = age;
+	}
+}
 
-let movie1 = new Movie('Random Movie 1', 2017, 120);
+let terminator = new Movie('Terminator', 1984, 90);
 let logger = new Logger();
+let arnold = new Actor('Arnold Schwarzenegger', 50);
+terminator.addCast(arnold);
+let otherCast = [
+  new Actor('Paul Winfield', 50),
+  new Actor('Michael Biehn', 50),
+  new Actor('Linda Hamilton', 50)
+];
 
+
+
+let Social = {
+	share: function(friendName){
+		console.log(`${friendName} shared ${this.title}`);
+	},
+	like: function(friendName){
+		console.log(`${friendName} likes ${this.title}`);
+	},
+}
+
+Object.assign(terminator,Social);
 
 //Some tests below:
-movie1.play();
-movie1.on('play', logger);
-movie1.play();
-movie1.off('play');
-movie1.play();
-movie1.on('play', logger);
-movie1.play();
-movie1.emit('play');
-movie1.off('play');
-movie1.emit('play');
-movie1.on('stop', logger);
-movie1.stop();
+terminator.play();
+terminator.on('play', logger);
+terminator.play();
+terminator.off('play');
+terminator.play();
+terminator.on('play', logger);
+terminator.play();
+terminator.emit('play');
+terminator.off('play');
+terminator.emit('play');
+terminator.on('stop', logger);
+terminator.stop();
+terminator.share('Alexander');
+terminator.like('Pepe');
+terminator.addCast(otherCast);
+console.log(terminator.actorsList);
