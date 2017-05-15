@@ -120,7 +120,7 @@ terminator.off('play');
 terminator.play();
 terminator.on('play', logger);
 terminator.play();
-terminator.emit('play');
+terminator.emit('pause');
 terminator.off('play');
 terminator.emit('play');
 terminator.on('stop', logger);
