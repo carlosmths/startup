@@ -7,7 +7,7 @@ export default class Header extends React.Component {
 		super(props);
 	}
 
-	makeMsgChange(message) {
+	doSearch(message) {
 		this.props.changeMessage(message);
 	}
 
@@ -15,7 +15,7 @@ export default class Header extends React.Component {
     return (
       <header class="header">
       	<Title />
-      	<Search makeMsgChange={this.makeMsgChange.bind(this)}/>
+      	<Search doSearch={this.doSearch.bind(this)}/>
       </header>
     );
   }

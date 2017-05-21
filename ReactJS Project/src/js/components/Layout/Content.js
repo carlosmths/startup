@@ -17,7 +17,7 @@ export default class Content extends React.Component {
   }
 
   showName() { 
-    ArtistsActions.mostrar("ESTE ES MI NOMBRE");
+    ArtistsActions.getArtists("ESTE ES MI NOMBRE");
   }
 
   render() {
@@ -26,7 +26,7 @@ export default class Content extends React.Component {
     }, 1000)
     return (
       <section class="content-section">
-        {this.state.artists}
+        
       </section>
     );
   }

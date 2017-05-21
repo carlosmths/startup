@@ -13,13 +13,6 @@ class ArtistsStore extends EventEmmiter {
 	setArtists(newName) {
 
 	}
-	/*getArtists() {
-    axios.get("https://api.spotify.com/v1/search?q=tania%20bowra&type=artist").then(function(response){
-      let name = response.data.artists.items[0].name;
-    }).catch(function(error){
-      console.log(error)
-    });
-  }*/
 
   getAllArtists() {
   	return this.state.name;
@@ -27,9 +20,8 @@ class ArtistsStore extends EventEmmiter {
 
   actionHandler(action) {
   	switch(action.type){
-  		case "MOSTRAR_USUARIO": {
-  			console.log(action.text);
-
+  		case "GET_ARTISTS": {
+  			console.log(action.name);
   		}
   	}
   }
@@ -37,6 +29,5 @@ class ArtistsStore extends EventEmmiter {
 
 const artistsStore = new ArtistsStore();
 dispatcher.register(artistsStore.actionHandler.bind(artistsStore));
-window.dispatcher = dispatcher;
 export default artistsStore;
 

@@ -15,7 +15,7 @@ export default class Title extends React.Component {
   }
 
   handleClick() {
-    this.props.makeMsgChange(this.state.search)
+    this.props.doSearch(this.state.search)
   }
   render() {
     return (
