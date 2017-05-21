@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./Header.js";
-import Content from "./Content.js";
+import Header from "./Layout/Header.js";
+import Content from "./Layout/Content.js";
 export default class Layout extends React.Component {
   constructor() {
     super();
