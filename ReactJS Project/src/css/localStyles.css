@@ -1,0 +1,24 @@
+html, body{
+	width:100%;
+	height:100%;
+}
+.full-parent-size{
+	width:100%;
+	height:100%;
+}
+.main-content{
+	border:1px solid black;
+	width:80%;
+	height:70%;
+	margin:0 auto;
+}
+.header{
+	position:relative;
+	border-bottom:1px solid black;
+	width:100%;
+	height:20%;
+}
+.content-section{
+	height:80%;
+	width:100%;
+}
