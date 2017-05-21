@@ -8,7 +8,9 @@ export default class Content extends React.Component {
   constructor() {
     super();
     this.state = {
-      artists: "Fill with artists"
+      artists: [
+
+      ]
     }
   }
 
@@ -16,17 +18,18 @@ export default class Content extends React.Component {
     this.setState({name});
   }
 
-  showName() { 
-    ArtistsActions.getArtists("ESTE ES MI NOMBRE");
+  componentDidMount() {
+    ArtistsStore.on("change", () => {
+      let listOfArtists = ArtistsStore.getAllArtists()
+      console.log("LIST OF ARTISTS: ", listOfArtists);
+      //Put artists in state
+    });
   }
 
   render() {
-    setTimeout(() => {
-      this.showName();
-    }, 1000)
     return (
       <section class="content-section">
-        
+        {this.state.artists}
       </section>
     );
   }

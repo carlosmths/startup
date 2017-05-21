@@ -1,4 +1,5 @@
 import React from "react";
+import * as ArtistsActions from "../../../Actions/ArtistsActions.js";
 
 export default class Title extends React.Component {
 	constructor() {
@@ -15,14 +16,14 @@ export default class Title extends React.Component {
   }
 
   handleClick() {
-    this.props.doSearch(this.state.search)
+    ArtistsActions.getArtists(this.state.search);
   }
   render() {
     return (
       <div>
       	<input type="text" onChange={this.handleChange.bind(this)}/>
 
-      	<button id="btnSearch" onClick={this.handleClick.bind(this)} class="btn btn-success">Buscar</button>
+      	<button id="btnSearch" onClick={this.handleClick.bind(this)} class="btn btn-success">Find artist</button>
       </div>
     );
   }
