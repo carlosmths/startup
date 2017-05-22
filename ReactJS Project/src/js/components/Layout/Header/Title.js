@@ -9,7 +9,7 @@ export default class Title extends React.Component {
 	}
   render() {
     return (
-      <h1>{this.state.title}</h1>
+      <h1 class="center">{this.state.title}</h1>
     );
   }
 }

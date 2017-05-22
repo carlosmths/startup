@@ -16,7 +16,7 @@ export default class Layout extends React.Component {
   render() {
     return (
       <div class="full-parent-size">
-        <Header changeMessage={this.changeMessage.bind(this)}/>
+        <Header />
         <Content message={this.state.message}/>
       </div>
       

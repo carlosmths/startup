@@ -5,9 +5,7 @@ class ArtistsStore extends EventEmmiter {
 	constructor() {
 		super();
 		this.state = {
-			artists: [
-				
-			]
+			artists: ""
 		}
 	}
 
@@ -15,15 +13,10 @@ class ArtistsStore extends EventEmmiter {
   	return this.state.artists;
   }
 
-  setArtists(list) {
-  	this.setState({artists: list})
-  }
-
   actionHandler(action) {
   	switch(action.type){
   		case "GET_ARTISTS": {
-  			//Put artists in state
-  			this.setArtists(action.artistsList);
+  			this.state.artists = action.artistsList.items;
   		}
   	}
   	this.emit("change");

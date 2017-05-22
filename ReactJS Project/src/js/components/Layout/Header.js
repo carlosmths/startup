@@ -3,19 +3,15 @@ import Title from "./Header/Title.js";
 import Search from "./Header/Search.js";
 
 export default class Header extends React.Component {
-	constructor(props){
-		super(props);
-	}
-
-	doSearch(message) {
-		this.props.changeMessage(message);
+	constructor(){
+		super();
 	}
 
   render() {
     return (
       <header class="header">
       	<Title />
-      	<Search doSearch={this.doSearch.bind(this)}/>
+      	<div class="center"><Search /></div>
       </header>
     );
   }
