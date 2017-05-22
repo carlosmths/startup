@@ -24,6 +24,7 @@ export default class Title extends React.Component {
       	<input type="text" class="margin-r-10" onChange={this.handleChange.bind(this)}/>
 
       	<button id="btnSearch" onClick={this.handleClick.bind(this)} class="btn btn-success">Find artist</button>
+        {/*<div>{this.state.search}</div>*/}
       </div>
     );
   }

@@ -3,8 +3,10 @@ import axios from "axios";
 import * as ArtistsActions from "../../Actions/ArtistsActions.js";
 import ArtistsStore from "../../Stores/ArtistsStore";
 import AlbumsStore from "../../Stores/AlbumsStore";
+import SongsStore from "../../Stores/SongsStore";
 import Artists from "./Content/Artists.js";
 import Albums from "./Content/Albums.js";
+import Songs from "./Content/Songs.js";
 
 
 export default class Content extends React.Component {
@@ -12,7 +14,8 @@ export default class Content extends React.Component {
     super();
     this.state = {
       artists: undefined,
-      albums: undefined
+      albums: undefined,
+      songs: undefined
     }
   }
 
@@ -29,6 +32,10 @@ export default class Content extends React.Component {
       let items = AlbumsStore.getAllAlbums();
       this.setState({albums: items});
     });
+    SongsStore.on("change", () => {
+      let items = SongsStore.getAllSongs();
+      this.setState({songs: items});
+    })
   }
 
   render() {
@@ -50,6 +57,15 @@ export default class Content extends React.Component {
       albumsMapper = albumsArray.map((element, index) => <Albums key={index} album={element}/>);
     }
 
+    var songsMapper = "";
+    if(this.state.songs != undefined){
+      console.log("Que tiene songs dentro: ", this.state.songs);
+      const listOfSongs = this.state.songs;
+      let songsArray = new Array();
+      listOfSongs.forEach((element) => songsArray.push(element));
+      songsMapper = songsArray.map((element, index) => <Songs key={index} song={element}/>);
+    }
+
     return (
       <div class="grow">
         <section class="content-section">
@@ -59,7 +75,7 @@ export default class Content extends React.Component {
           {albumsMapper}
         </section>
         <section class="playlist-section">
-          
+          {songsMapper}
         </section>
       </div>
     );

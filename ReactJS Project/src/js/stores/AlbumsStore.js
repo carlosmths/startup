@@ -18,8 +18,14 @@ class AlbumsStore extends EventEmmiter {
   		case "GET_ALBUMS": {
   			this.state.albums = action.albumsList;
   		}
+	  	break;
+			case "SELECT_ALBUM": {
+				//console.log("Action on actionHandler: ",action.value);
+				this.state.albums = undefined;
+			}
+			break;
   	}
-  	this.emit("change");
+  	this.emit("change");	
   	//console.log("AlbumsStore emitted a change");
   }
 }

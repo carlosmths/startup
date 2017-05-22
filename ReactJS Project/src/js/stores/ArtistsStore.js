@@ -5,7 +5,7 @@ class ArtistsStore extends EventEmmiter {
 	constructor() {
 		super();
 		this.state = {
-			artists: undefined
+			artists: ""
 		}
 	}
 
@@ -20,7 +20,7 @@ class ArtistsStore extends EventEmmiter {
   		}
   		break;
   		case "SELECT_ARTIST": {
-  			console.log("Action on actionHandler: ",action.value);
+  			//console.log("Action on actionHandler: ",action.value);
   			this.state.artists = undefined;
   		}
   		break;

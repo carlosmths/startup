@@ -10,6 +10,11 @@ export function getAlbums(value) {
     dispatcher.dispatch({type: "GET_ALBUMS", albumsList});
   })
   .catch(function(error){
-    console.log(error)
+    console.log("ERROR ON GETALBUMS: ", error);
   });
+}
+
+//To select only one album and show it on the albums section as selected. -> to implement.
+export function selectAlbum(value) {
+  dispatcher.dispatch({type: "SELECT_ALBUM", value});
 }
