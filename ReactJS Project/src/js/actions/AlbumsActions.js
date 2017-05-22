@@ -1,0 +1,15 @@
+import dispatcher from "../dispatcher";
+import axios from "axios";
+
+export function getAlbums(value) {
+	//console.log("getAlbums value: ", value);
+	axios.get(`https://api.spotify.com/v1/artists/${value}/albums`)
+  .then(function(response){
+    let albumsList = response.data.items;
+    //console.log("albumsList on getAlbums: ", albumsList);
+    dispatcher.dispatch({type: "GET_ALBUMS", albumsList});
+  })
+  .catch(function(error){
+    console.log(error)
+  });
+}

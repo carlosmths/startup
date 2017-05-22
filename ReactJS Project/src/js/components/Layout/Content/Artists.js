@@ -1,6 +1,8 @@
 import React from "react";
-import Image from "./Artists/Image.js";
-import Name from "./Artists/Name.js";
+import Image from "./Common/Image.js";
+import Name from "./Common/Name.js";
+import * as AlbumsActions from "../../../Actions/AlbumsActions.js";
+import * as ArtistsActions from "../../../Actions/ArtistsActions.js";
 
 export default class Artists extends React.Component {
 	constructor() {
@@ -8,7 +10,15 @@ export default class Artists extends React.Component {
 	}
 
   handleClick() {
-    console.log("STOP CLICKING ME: ", this.props.artist.name);
+    //HERE: Implement the call to AlbumsActions to find the albums of the selected artist.
+    // console.log("STOP CLICKING ME: ", this.props.artist.name, this.props.artist.id);
+    const artistId = this.props.artist.id;
+    const artists = this.props.artist;
+    console.log("Clicked on Artist: ");
+    console.log("Artist Name: ", this.props.artist.name);
+    console.log("Artist Id:: ", artistId);
+    AlbumsActions.getAlbums(artistId);
+    ArtistsActions.selectArtist(artistId);
   }
 
   render() {

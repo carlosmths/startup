@@ -11,3 +11,8 @@ export function getArtists(value) {
     console.log(error)
   });
 }
+
+//To select only one artist and show it on the artists section as selected.
+export function selectArtist(value) {
+  dispatcher.dispatch({type: "SELECT_ARTIST", value});
+}
